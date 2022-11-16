@@ -740,6 +740,10 @@ namespace DZY.WinAPI
         public const int MONITOR_DEFAULTTONEAREST = 2;
 
         #endregion
+            
+        [DllImport("user32.dll", EntryPoint = "ShowCursor", CharSet = CharSet.Auto)]
+        public extern static void ShowCursor(int status);
+        
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, WINDOWPLACEMENTFlags nCmdShow);
 
@@ -840,6 +844,9 @@ namespace DZY.WinAPI
         [DllImport("user32.dll")]
         public static extern int SetWindowLong(IntPtr hWnd, WindowLongFlags nIndex, int dwNewLong);
 
+        [DllImport("user32.dll")]
+        public static extern int MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool BRePaint);
+        
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
